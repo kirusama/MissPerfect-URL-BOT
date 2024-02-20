@@ -17,6 +17,10 @@ RUN pip3 install -U -r requirements.txt
 RUN mkdir /MissPerfectURL
 WORKDIR /MissPerfectURL
 COPY start.sh /start.sh
+COPY bot.py /bot.py
 
-# Running MessageSearchBot
-CMD ["/bin/bash", "/start.sh"]
+# Expose port 5472
+EXPOSE 5472
+
+# Running Flask server
+CMD ["python3", "bot.py"]
